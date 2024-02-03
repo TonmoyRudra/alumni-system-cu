@@ -1,0 +1,29 @@
+
+
+<app-header></app-header>
+<dx-toolbar [items]="toolbarContent" style="margin-top: 90px;"> </dx-toolbar>
+<dx-drawer
+  [openedStateMode]="selectedOpenMode"
+  [position]="selectedPosition"
+  [revealMode]="selectedRevealMode"
+  template="template"
+  [(opened)]="isDrawerOpen"
+  [height]="800"
+  [closeOnOutsideClick]="true"
+>
+  <div *dxTemplate="let data of 'template'" style="width: 200px">
+    <dx-list
+      class="panel-list dx-theme-accent-as-background-color"
+      [dataSource]="navigation"
+      [hoverStateEnabled]="false"
+      [activeStateEnabled]="false"
+      [focusStateEnabled]="false"
+      (onItemClick)="onItemClick($event)"
+    >
+    </dx-list>
+  </div>
+  <div id="content" class="dx-theme-background-color">
+    <router-outlet></router-outlet>
+  </div>
+
+</dx-drawer>

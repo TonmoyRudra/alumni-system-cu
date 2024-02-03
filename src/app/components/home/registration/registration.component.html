@@ -1,0 +1,131 @@
+<div class="inner-banner">
+  <section class="w3l-breadcrumb py-5">
+    <div class="container py-lg-5 py-md-3">
+      <h2 class="title">Alumni Registration</h2>
+    </div>
+  </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+  <div class="shape overflow-hidden">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+    </svg>
+  </div>
+</div>
+<!-- banner bottom shape -->
+<section class="w3l-aboutblock1 py-5" id="about">
+  <div class="container py-lg-5 py-md-3">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <form (submit)="onFormSubmit($event)">
+          <div>
+            <div class="circle">
+              <img class="profile-pic" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+
+            </div>
+            <div class="p-image">
+              <i class="fa fa-camera upload-button"></i>
+               <input class="file-upload" type="file" accept="image/*"  (change)="filePickerData($event)" />
+            </div>
+          </div>
+          <dx-form id="form" [(formData)]="registrationFormData" labelMode="floating">
+            <dxi-item itemType="group" cssClass="first-group" [colCount]="4">
+              <!-- <dxi-item>
+                <div class="form-avatar"></div>
+              </dxi-item> -->
+
+              <dxi-item itemType="group" [colSpan]="3">
+                <dxi-item dataField="Name" >
+                  <dxi-validation-rule type="required" message="Name is required"> </dxi-validation-rule>
+                </dxi-item>
+                <dxi-item dataField="Email">
+                  <dxi-validation-rule type="required" message="Email is required"> </dxi-validation-rule>
+                  <dxi-validation-rule type="email" message="Email is invalide"> </dxi-validation-rule>
+                </dxi-item>
+                <dxi-item dataField="Mobile" [label]="{ text: 'Mobile'}"  [editorOptions]="{ maxLength: 11 }">
+                  <dxi-validation-rule type="required" message="Phone is required"> </dxi-validation-rule>
+                </dxi-item>
+              </dxi-item>
+
+            </dxi-item>
+            <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+              <dxi-item itemType="group">
+                <dxi-item dataField="FatherName"></dxi-item>
+                <dxi-item dataField="MotherName"></dxi-item>
+                <dxi-item dataField="UniversityBatch" editorType="dxSelectBox"
+                  [editorOptions]="{ items: UniversityBatchList, value: '' }">
+                  <dxi-validation-rule type="required" message=" Required"> </dxi-validation-rule>
+                </dxi-item>
+                <dxi-item dataField="BSSYear" editorType="dxSelectBox" [label]="{ text: 'BSS Year'}"
+                  [editorOptions]="{ items: BSSYearList, value: '' }">
+                </dxi-item>
+                <dxi-item dataField="MSSYear" editorType="dxSelectBox" [label]="{ text: 'MSS Year'}"
+                  [editorOptions]="{ items: MSSYearList, value: '' }">
+                </dxi-item>
+              </dxi-item>
+              <dxi-item itemType="group">
+                <dxi-item dataField="DOB" editorType="dxDateBox" [label]="{ text: 'Date Of Birth'}">
+                  <dxi-validation-rule type="required" message=" Required"> </dxi-validation-rule>
+                </dxi-item>
+                <dxi-item dataField="BloodGroup"  editorType="dxSelectBox"
+                [editorOptions]="{ items: bloodGroupList, value: '' }">
+                </dxi-item>
+                <dxi-item dataField="FacebookId"></dxi-item>
+                <dxi-item dataField="WhatsAppp"></dxi-item>
+              </dxi-item>
+            </dxi-item>
+
+            <dxi-item itemType="group" cssClass="second-group" [colCount]="2">
+              <dxi-item itemType="group">
+                <dxi-item dataField="Profession">
+                  <dxi-validation-rule type="required" message=" Required"> </dxi-validation-rule>
+
+                </dxi-item>
+                <dxi-item dataField="Designation">
+                  <dxi-validation-rule type="required" message=" Required"> </dxi-validation-rule>
+
+                </dxi-item>
+                <dxi-item dataField="OfficeAddress" editorType="dxTextArea" [editorOptions]="{ height: 80 }">
+                  <dxi-validation-rule type="required" message=" Required"> </dxi-validation-rule>
+
+                </dxi-item>
+                <dxi-item dataField="Interest" editorType="dxTextArea" [editorOptions]="{ height: 80 }"></dxi-item>
+                <dxi-item dataField="Achievements" editorType="dxTextArea" [editorOptions]="{ height: 80 }"></dxi-item>
+              </dxi-item>
+              <dxi-item itemType="group">
+                <dxi-item dataField="PresentAddress" editorType="dxTextArea" [editorOptions]="{ height: 80 }">
+                  <dxi-validation-rule type="required" message=" Required"> </dxi-validation-rule>
+
+                </dxi-item>
+                <dxi-item dataField="PermanentAddress" editorType="dxTextArea" [editorOptions]="{ height: 80 }">
+                  <dxi-validation-rule type="required" message=" Required"> </dxi-validation-rule>
+
+                </dxi-item>
+                <dxi-item dataField="SpouseName"></dxi-item>
+                <dxi-item dataField="MarriageAnniversary" editorType="dxDateBox"></dxi-item>
+                <dxi-item dataField="NumberOfKids" editorType="dxNumberBox"></dxi-item>
+              </dxi-item>
+              <!-- <dxi-item
+                    dataField="Notes"
+                    [colSpan]="2"
+                    editorType="dxTextArea"
+                    [editorOptions]="{ height: 140 }"
+                  ></dxi-item> -->
+            </dxi-item>
+            <dxi-item
+            itemType="button"
+            horizontalAlignment="center"
+            [buttonOptions]="buttonOptions"
+          >
+          </dxi-item>
+          </dx-form>
+        </form>
+      </div>
+      <!-- <div class="col-lg-6 mt-lg-0 mt-5">
+              <img src="assets/images/about.jpg" alt="" class="radius-image img-fluid">
+          </div> -->
+    </div>
+  </div>
+</section>

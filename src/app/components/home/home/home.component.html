@@ -1,0 +1,398 @@
+<!-- main-slider -->
+<section class="w3l-main-slider" id="home" style="padding-top: 7%;">
+    <marquee id='scroll_notice'  onMouseOver="document.getElementById('scroll_notice').stop();"
+    onMouseOut="document.getElementById('scroll_notice').start();"
+    scrollamount="8">
+     <div (click)="showNotice()" class="marDiv"> পারিবারিক মিলনমেলা  ২০২৪। আগামী ১ মার্চ ২০২৪ শুক্রবার  দিনব্যাপী (সকাল ০৯.০০টা থেকে সন্ধ্য ০৬.০০টা পর্যন্ত) <span style="text-decoration: underline;"> read more..</span></div>
+   </marquee>
+  <div class="companies20-content">
+   
+      <div class=" ">
+          <div class="item">
+              <li>
+                  <div class="slider-info banner-view bg bg2">
+                      <div class="banner-info">
+                          <div class="container">
+                              <div class="banner-info-bg text-left">
+                                  <!-- <p>Charity Life</p>
+                                  <h5>Charity, Faith and Hope. Help the Homeless. Charity life.</h5> -->
+                                  <!-- <a class="btn btn-primary btn-style">Read More</a> -->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+          </div>
+
+      </div>
+  </div>
+</section>
+<div>
+    <!-- Notice -->
+    <dx-popup class="popup"    [showTitle]="true" title="Notice" [dragEnabled]="true"
+    [closeOnOutsideClick]="false" [(visible)]="isNoticeDialogVisible">
+  
+      <dx-scroll-view #scrollView id="scrollview"
+      [scrollByContent]="scrollByContent"
+      [scrollByThumb]="scrollByThumb"
+      [showScrollbar]="scrollbarMode">
+      <div class="row feechart">
+        <div class="col-sm-12 ">
+          <!-- <div class="header">Fee Chart:</div>
+                  <div style="font-size: 20px; margin-bottom: 10px; font-weight: bold;">{{selectedCategory?.name}}</div>
+                  <div style="color: red; font-size: 12px;">*Per Person</div>
+                  <ul *ngIf="selectedCategory">
+                    <li> Member: <span>{{selectedCategory?.payment_setting?.member}}/-</span> </li>
+                    <li> Spouse: <span>{{selectedCategory?.payment_setting?.spouse}}/-</span> </li>
+                    <li> Children/Grand Children: <span>{{selectedCategory?.payment_setting?.children}}/-</span> </li>
+                    <li> Driver: <span>{{selectedCategory?.payment_setting?.driver}}/-</span> </li>
+                    <li> Guest: <span>{{selectedCategory?.payment_setting?.guest}}/-</span> </li>
+                  </ul> -->
+          <div>
+            <div style="font-size: 18px; font-weight: bold; color: blue; margin-bottom: 30px;">
+              পারিবারিক মিলনমেলা ২০২৪</div>
+  
+              <div style="font-size: 12px;">
+                <div style="margin-bottom: 10px;color: black;">অত্র ফোরামের সিদ্ধান্ত অনুযায়ী -</div>
+                <div>
+                  <p style="    text-align: justify; font-size: 12px;color: black;">
+                    আগামী ১ মার্চ ২০২৪ শুক্রবার দিনব্যাপী (সকাল ০৯.০০টা থেকে সন্ধ্য ০৬.০০টা পর্যন্ত) 
+                    "পারিবারিক মিলনমলা - ২০২৪" সিকালব রিসোর্ট এন্ড কনভেনশন সেন্টার -এ অনুষ্ঠিত হবে। 
+                    উক্ত অনুষ্ঠানে অংশগ্রহণের জন্য দেশ ও বিদেশে অবস্হানরত ফোরামের সকল সদস্যকে আহবান 
+                    করা যাচ্ছে। নিম্নে বর্ণিত চাঁদার ভিত্তিতে পরিবারের সদস্যগন সহ অংশগ্রহণ করা যাবে। চাঁদার হার 
+                    নিম্নরুপঃ-
+                    </p>
+                </div>
+
+
+                <!-- <div class="ulhead">ক্যাটাগরি কঃ- ব্যাচ ১৯৮১ থেকে ২০০৫</div>
+                <ul>
+                  <li>১. স্পাউস সহ সদস্য - ২,৫০০/-</li>
+                  <li>২. একক সদস্য - ১,৫০০/-</li>
+                </ul>
+                <br />
+                <br />
+                <div class="ulhead">ক্যাটাগরি খঃ- ব্যাচ ২০০৬ থেকে ২০১৫</div>
+                <ul>
+                  <li>১. স্পাউস সহ সদস্য - ২,০০০/-</li>
+                  <li>২. একক সদস্য - ১,০০০/-</li>
+                </ul>
+                <br />
+                <br />
+                <div class="ulhead"> ক্যাটাগরি গঃ- ব্যাচ ২০১৬ থেকে ২০২২</div>
+                <ul>
+                  <li> ১. স্পাউস সহ সদস্য - ১,০০০/-</li>
+                  <li>২. একক সদস্য - ৫০০/-</li>
+                </ul> -->
+
+                <br />
+                <br />
+                <div class="ulhead">সকল ক্যাটাগরিঃ-</div>
+                <ul>
+                  <li>১. স্পাউস সহ সদস্য - ২,৫০০/-</li>
+                  <li>২. একক সদস্য - ১,৫০০/-</li>
+                  <li>৩. সন্তান/পোষ্য - ৮০০/- প্রতিজন (বয়স ৫ বছর বা তদুর্ধ)</li>
+                  <li>৪. গাড়ী চালক - ৫০০/- প্রতিজন</li>
+                  <li>৫. পরিবারের সাথে সংযুক্ত অতিথি - ১,৫০০/- প্রতি জন।</li>
+                </ul>
+
+
+                <div style="margin-top: 15px;">
+                  ★ - রেজিষ্ট্রেশনের সর্বশেষ সময় - <b>২০ ফেব্রুয়ারি ২০২৪।</b> <br />
+                  ★- অনলাইনে রেজিষ্ট্রেশন ও পেমেন্ট করতে হবে (শীঘ্রই অনলাইন লিংক জানানো হবে)।<br />
+                  ★ - কোন স্পট রেজিষ্ট্রেশন হবে না।<br />
+                  ★ - স্পটে আসা যাওয়ার জন্য একাধিক  বাস থাকবে এবং ঢাকা শহরে নির্দিষ্ট স্থান সমূহ হতে ভ্যানুতে আসা যাওয়া করবে।
+                  <br />
+                  ★ - বাসে যাতায়াতকারীগন ফরমের নির্ধারিত স্হানে তা উল্লেখ করবেন।<br />
+                  ★ - এই মিলন মেলায় সদ্য পাশকৃতদের অংশগ্রহনের জন্য বিশেষভাবে উৎসাহিত করা হচ্ছে।
+                  <br />
+                </div>
+ 
+                <div style="margin-top: 38px;">
+                  <div class="ulhead" style="color: #17a2b8; font-size: 15px;text-decoration: underline;">
+                    অনলাইনে (বিকাশ)  পেমেন্ট করার নিয়মাবলীঃ
+                  </div>
+                  <ul>
+                    <li style="color: var(--pink); font-size: 12px;"> <img src="../../../../assets/images/bKashLogo.png" style="width: 50px;"/>
+                      <span style="    position: relative; top: 1px; left: 8px;font-weight: 800;">{{bKashNumber}}</span>  </li>
+                    <!-- <li style="color: var(--primary-color); font-size: 12px;"><img src="../../../../assets/images/nagadLogo.png" style="width: 50px;"/>
+                    <span style="    position: relative; top: 4px; left: 5px;font-weight: 800;"> {{nagadNumber}} </span> </li> -->
+                  </ul>
+                  <div style="margin-top: 10px ; text-align: justify;">
+                    প্রথমে উল্লেখিত যেকোনো একটি বিকাশ নম্বরে টাকা
+                    পাঠিয়ে রেফারেন্স নাম্বারটি নিচে রেফারেন্স বক্সে লিখুন, এবং সাবমিট করুন।
+                    আপনার পেমেন্ট নিশ্চিত হলে আপনার উল্লেখিত এবং মোবাইলে একটি কনফার্মেশন মেসেজ
+                    পাবেন এবং সেই সাথে আপনি একটি লিংক পাবেন, যার মাধ্যমে  আপনি ইভেন ইনভাইটেশন কার্ড ডাউনলোড করতে পারবেন।
+                  </div>
+
+
+                </div>
+              </div>
+  
+          </div>
+        </div>
+      </div>
+    </dx-scroll-view>
+  
+  </dx-popup>
+  </div>
+<!-- /main-slider -->
+<!-- banner image bottom shape -->
+<!-- <div class="position-relative">
+  <div class="shape overflow-hidden">
+      <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor">
+          </path>
+      </svg>
+  </div>
+</div> -->
+<!-- //banner image bottom shape -->
+<!-- home page block1 -->
+<section class="homeblock1">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="box-wrap">
+                  <h4><a >View our Mission</a></h4>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-sm-4 mt-3">
+              <div class="box-wrap">
+                  <h4><a >Top Founders</a></h4>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-sm-4 mt-3">
+              <div class="box-wrap">
+                  <h4><a >Notice</a></h4>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- //home page block1 -->
+<!-- middle -->
+<div class="middle py-5" id="facts">
+  <div class="container pt-lg-3">
+    <div class="welcome-left text-center py-md-5 py-3">
+              <div class="title-big">Chittagong University</div>
+              <div style="font-size: 25px;">Public Administration Ex Students Forum, Dhaka</div>
+      <a  *ngIf="!loginUser" [routerLink]="'registration'" class="btn btn-style btn-primary mt-sm-5 mt-4"><span class="fa fa-heart mr-1"></span> Registration Now</a>
+    </div>
+  </div>
+</div>
+<!-- //middle -->
+
+<!-- /bottom-grids-->
+<section class="w3l-bottom-grids-6 py-5">
+  <div class="container py-lg-5 py-md-4 py-2">
+      <div class="grids-area-hny main-cont-wthree-fea row">
+          <div class="col-lg-6 col-md-6 grids-feature">
+              <div class="area-box" style="text-align: center;">
+                  <img src="assets/images/donate.png" alt="">
+                  <h4><a class="title-head">Give Donation.</a></h4>
+                  <p class="mb-3">We are appritiate you contribution, Which is used to help our community people. </p>
+                  <a   class="btn btn-text">Donate Now </a>
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6 grids-feature mt-md-0 mt-5">
+              <div class="area-box" style="text-align: center;">
+                  <img src="assets/images/volunteer.png" alt="">
+                  <h4><a   class="title-head">Become a Member.</a></h4>
+
+                    <ul class="mb-3 becomeMember">
+                      <li> - প্রথমে রেজিস্ট্রেশনের জন্য ফরম পূরণ করবেন</li>
+                      <li>- এর পরে রেজিষ্ট্রেশন সম্পন্ন হলে আপনার কাছে একটি এসএমএস আসবে</li>
+                      <li>- এরপর ইভেন্ট রেজিষ্ট্রেশন এর জন্য পুনরায়  লগইন করতে হবে এবং টাকা বিকাশ অথবা নগদের মাধ্যমে উল্লেখিত নম্বরে পাঠাতে হবে।</li>
+                      <li>- বিকাশ / নগদের ট্রাঞ্জেকশন আইডি দিতে হবে</li>
+                      <li>- এডমিন এপ্রুভালের পরে আপনার কাছে ইভেন্ট রেজিষ্ট্রেশন সম্পন্নের এসএমএস এবং ইনভাইটেশন এর লিংক আসবে</li>
+                    </ul>
+                  <a   [routerLink]="'registration'" class="btn btn-text">Join Now </a>
+              </div>
+          </div>
+          <!-- <div class="col-lg-4 col-md-6 grids-feature mt-lg-0 mt-5">
+              <div class="area-box" style="text-align: center;">
+                  <img src="assets/images/child.png" alt="" width="52px">
+                  <h4><a href="#feature" class="title-head">Help the Children.</a></h4>
+                  <p class="mb-3">Vivamus a ligula quam. Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet.</p>
+                  <a href="#donate" class="btn btn-text">Help Now </a>
+              </div>
+          </div> -->
+      </div>
+  </div>
+</section>
+<!-- //bottom-grids-->
+<!-- stats -->
+<section class="w3_stats py-5" id="stats">
+  <div class="container py-lg-5 py-md-4 py-2">
+      <div class="title-content text-center">
+          <h3 class="title-big">Our mission is to help people by distributing Money and Service globally.</h3>
+      </div>
+      <div class="w3-stats text-center">
+          <div class="row">
+              <div class="col-md-3 col-6">
+                  <div class="counter">
+                      <span class="fa fa-users"></span>
+                      <div class="timer count-title count-number mt-3" data-to="1500" data-speed="1500"> 890</div>
+                      <p class="count-text ">Total Alumni</p>
+                  </div>
+              </div>
+              <div class="col-md-3 col-6">
+                  <div class="counter">
+                      <span class="fa fa-users"></span>
+                      <div class="timer count-title count-number mt-3" data-to="2256" data-speed="1500">120</div>
+                      <p class="count-text ">Professional Alumni</p>
+                  </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="counter">
+                    <span class="fa fa-users"></span>
+                    <div class="timer count-title count-number mt-3" data-to="2256" data-speed="1500">120</div>
+                    <p class="count-text ">Professional Alumni</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="counter">
+                  <span class="fa fa-users"></span>
+                  <div class="timer count-title count-number mt-3" data-to="2256" data-speed="1500">120</div>
+                  <p class="count-text ">Professional Alumni</p>
+              </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- //stats -->
+<!-- bg -->
+<div class="w3l-bg py-5">
+  <div class="container py-lg-5 py-md-4">
+      <div class="welcome-left text-center py-lg-4">
+          <span class="fa fa-heart-o"></span>
+          <h3 class="title-big">Help the Homeless & Hungry People.</h3>
+          <a href="#donate" class="btn btn-style btn-primary mt-sm-5 mt-4">Donate Now</a>
+      </div>
+  </div>
+</div>
+<!-- //bg -->
+<section class="w3l-index5 py-5" id="causes">
+  <div class="container py-lg-5 py-md-4">
+      <div class="row">
+
+      </div>
+  </div>
+</section>
+
+<section class="w3-services-ab py-5" id="mission">
+  <div class="container py-lg-5 py-md-4">
+      <h3 class="title-big text-center mb-5">Our Mission and Goals</h3>
+      <div class="w3-services-grids">
+          <div class="fea-gd-vv row">
+              <div class="col-lg-4 col-md-6">
+                  <div class="float-lt feature-gd">
+                      <div class="icon">
+                          <img src="assets/images/home.png" alt="" class="img-fluid">
+                      </div>
+                      <div class="icon-info">
+                          <h5>Homeless Charities.</h5>
+                          <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
+                              tempor primis in init.</p>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                  <div class="float-mid feature-gd">
+                      <div class="icon">
+                          <img src="assets/images/education.png" alt="" class="img-fluid">
+                      </div>
+                      <div class="icon-info">
+                          <h5>Education Charities.</h5>
+                          <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
+                              tempor primis in init.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
+                  <div class="float-rt feature-gd">
+                      <div class="icon">
+                          <img src="assets/images/health.png" alt="" class="img-fluid">
+                      </div>
+                      <div class="icon-info">
+                          <h5>Health Charities.</h5>
+                          <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
+                              tempor primis in init.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mt-4 pt-md-2">
+                  <div class="float-lt feature-gd">
+                      <div class="icon">
+                          <img src="assets/images/icon1.png" alt="" class="img-fluid">
+                      </div>
+                      <div class="icon-info">
+                          <h5>Animal Charities.</h5>
+                          <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
+                              tempor primis in init.</p>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mt-4 pt-md-2">
+                  <div class="float-lt feature-gd">
+                      <div class="icon">
+                          <img src="assets/images/food.png" alt="" class="img-fluid">
+                      </div>
+                      <div class="icon-info">
+                          <h5>Food Charities.</h5>
+                          <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
+                              tempor primis in init.</p>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mt-4 pt-md-2">
+                  <div class="float-lt feature-gd">
+                      <div class="icon">
+                          <img src="assets/images/eco.png" alt="" class="img-fluid">
+                      </div>
+                      <div class="icon-info">
+                          <h5>Eco Charities.</h5>
+                          <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
+                              tempor primis in init.</p>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="w3l-clients py-5" id="clients">
+  <div class="call-w3 py-lg-5 py-md-4">
+      <div class="container">
+          <h3 class="title-big text-center">Our Sponsor</h3>
+          <div class="company-logos text-center mt-5">
+              <div class="row logos">
+                  <div class="col-lg-2 col-md-3 col-4">
+                      <img src="assets/images/brand1.png" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4">
+                      <img src="assets/images/brand2.png" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4">
+                      <img src="assets/images/brand3.png" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mt-md-0 mt-4">
+                      <img src="assets/images/brand4.png" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                      <img src="assets/images/brand5.png" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                      <img src="assets/images/brand6.png" alt="" class="img-fluid">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

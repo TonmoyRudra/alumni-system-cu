@@ -1,0 +1,153 @@
+::ng-deep .first-group,
+::ng-deep .second-group {
+  padding: 20px;
+}
+
+::ng-deep .second-group {
+  background-color: rgba(191, 191, 191, 0.15);
+}
+
+::ng-deep .form-avatar {
+  height: 128px;
+  width: 128px;
+  margin-right: 10px;
+  border: 1px solid #d2d3d5;
+  border-radius: 50%;
+  background-image: url('../../../../assets/images/team1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.profile-pic {
+  width: 200px;
+  max-height: 200px;
+  display: inline-block;
+}
+
+.file-upload {
+  display: none;
+}
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+.p-image:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+
+.upload-button {
+  font-size: 1.2em;
+}
+
+.upload-button:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  color: #999;
+}
+.circle {
+  border-radius: 100% !important;
+  overflow: hidden;
+  width: 170px;
+  height: 170px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  top: 0;
+  right: -152px;
+}
+
+.p-image {
+  position: absolute;
+  top: 114px;
+  right: 158px;
+  color: #666666;
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+
+@media (min-width: 576px) {
+
+  .circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 170px;
+    height: 170px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    top: 0;
+    right: -164px;
+  }
+
+  .p-image {
+    position: absolute;
+    top: 117px;
+    right: 203px;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+}
+@media (min-width: 768px) {
+  .circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 170px;
+    height: 170px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: -5px;
+    right: 27px;
+  }
+
+  .p-image {
+    position: absolute;
+    top: 120px;
+    right: 45px;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+}
+@media (min-width: 992px) {
+  .circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 170px;
+    height: 170px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: -23px;
+    right: 95px;
+  }
+
+  .p-image {
+    position: absolute;
+    top: 114px;
+    right: 109px;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+}
+@media (min-width: 1200px) {
+  .circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 170px;
+    height: 170px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: -23px;
+    right: 95px;
+  }
+
+  .p-image {
+    position: absolute;
+    top: 114px;
+    right: 109px;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+}

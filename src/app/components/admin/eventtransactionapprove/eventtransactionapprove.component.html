@@ -1,0 +1,228 @@
+<h3>Event Subscription Approvals</h3>
+
+
+<div style="height: calc(100%);overflow: scroll;">
+  <dx-data-grid id="gridContainer" [dataSource]="RegionList" keyExpr="Id" [columnHidingEnabled]="false"
+  [allowColumnReordering]="true" [allowColumnResizing]="true" [showBorders]="true"
+  (onRowPrepared)="onRowPrepared($event)" [showRowLines]="true" [wordWrapEnabled]="true">
+
+  <!-- [remoteOperations]="true"  -->
+
+  <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+  <dxo-export [enabled]="true" fileName="List" [allowExportSelectedData]="true"></dxo-export>
+  <dxo-sorting mode="multiple"></dxo-sorting>
+  <dxo-filter-panel [visible]="true"></dxo-filter-panel>
+  <dxo-scrolling [scrollByContent]="true" columnRenderingMode="virtual" showScrollbar="always"></dxo-scrolling>
+
+  <!-- <dxo-filter-builder [visible]="true"></dxo-filter-builder> -->
+  <!-- <dxo-filter-row [visible]="true"></dxo-filter-row> -->
+  <dxo-header-filter [visible]="true" [allowSearch]="true"></dxo-header-filter>
+  <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+  <dxo-paging [enabled]="true"></dxo-paging>
+  <dxo-paging [pageSize]="5"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true" [allowedPageSizes]="[10,20,50, 100, 250, 500, 1000]"></dxo-pager>
+
+  <dxo-grouping [contextMenuEnabled]="true" expandMode="rowClick"></dxo-grouping>
+  <dxo-selection mode="none"></dxo-selection>
+
+  <dxi-column dataField="EventName"></dxi-column>
+  <dxi-column dataField="Name"></dxi-column>
+  <dxi-column dataField="Mobile"></dxi-column>
+  <dxi-column dataField="Category"></dxi-column>
+  <dxi-column dataField="UniversityBatch"></dxi-column>
+  <dxi-column dataField="CreateDate"   caption="Submission Date" dataType="datetime"
+    format="dd-MMM-yyyy hh:mm a"></dxi-column>
+  <dxi-column dataField="TotalAmount" dataType="number" [editorOptions]="{ format: '#,##,##0.##' }"></dxi-column>
+  <dxi-column dataField="TotalCount" caption="Total Member(s)" dataType="number"></dxi-column>
+  <dxi-column dataField="BkashTransactionId" caption="Bkash Transaction"></dxi-column>
+  <dxi-column dataField="BkashMobileNo" caption="Bkash MobileNo"></dxi-column>
+  <dxi-column dataField="IsApproved" caption="Status"></dxi-column>
+
+
+
+  <dxi-column caption="Actions"  cellTemplate="action"></dxi-column>
+  <div *dxTemplate="let cell of 'action'">
+    <div style="    margin: 10px;">
+      <span *ngIf="cell.data.IsApproved">Approved</span>
+    </div>
+<div style="    margin: 10px;">
+  <dx-button *ngIf="!cell.data.IsApproved" type="success" text="Approve" title="Approve"
+    (onClick)="Approve(cell.data.BkashTransactionId)"></dx-button>
+    <!-- <dx-button *ngIf="cell.data.IsApproved" type="danger" text="DisApprove"  title="DisApprove"
+    (onClick)="DeApprove(cell.data.BkashTransactionId)"></dx-button> -->
+</div>
+<div style="    margin: 10px;">
+  <dx-button type="default" text="Details"  title="Details" (onClick)="ShowDetails(cell.data)"></dx-button>
+</div>
+
+    &nbsp;
+
+  </div>
+
+  <dxo-summary>
+    <dxi-total-item summaryType="count" displayFormat="{0} Records" column="EventName"></dxi-total-item>
+
+    <dxi-total-item summaryType="sum" displayFormat="{0}" column="TotalAmount"
+      [valueFormat]="{ format: '#,##,##0.##' , type: 'fixedPoint', precision: 2 }"></dxi-total-item>
+
+    <dxi-total-item summaryType="sum" displayFormat="{0}" column="TotalCount"
+      [valueFormat]="{ format: '#,##,##0' , type: 'fixedPoint', precision: 0 }"></dxi-total-item>
+
+  </dxo-summary>
+
+</dx-data-grid>
+
+
+
+<dx-popup class="popup" [width]="800" [height]="'auto'" [showTitle]="true" title="Details" [dragEnabled]="true"
+  [closeOnOutsideClick]="false" [(visible)]="isDialogVisible">
+
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view [width]="'auto'" [height]="300" [direction]="both" [showScrollbar]="'always'">
+
+      <div id="content">
+        <div class="row" style="margin-top: 10px !important;">
+          <div class="col-md-12">
+            <table class="detail-table">
+              <tr>
+                <td class="header-label">Event Name: </td>
+                <td class="detail-label">{{EventData.EventName}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Name : </td>
+                <td class="detail-label">{{EventData.Name}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Category : </td>
+                <td class="detail-label">{{EventData.Category}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">University Batch: </td>
+                <td class="detail-label">{{EventData.UniversityBatch}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Submission Date : </td>
+                <td class="detail-label">{{EventData.CreateDate}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Mobile: </td>
+                <td class="detail-label">{{EventData.Mobile}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Payment Mobile No : </td>
+                <td class="detail-label">{{EventData.BkashMobileNo}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Payment Transaction Id : </td>
+                <td class="detail-label">{{EventData.BkashTransactionId}}</td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <table class="detail-table-top">
+              <tr>
+                <td class="header-label-top">Id : </td>
+                <td class="detail-label-top">{{EventData.Id}}</td>
+                <td class="gap-column-top"></td>
+                <td class="header-label-top">Event Id : </td>
+                <td class="detail-label-top">{{EventData.EventId}}</td>
+                <td class="gap-column-top"></td>
+                <td class="header-label-top">Member Id : </td>
+                <td class="detail-label-top">{{EventData.MemberId}}</td>
+              </tr>
+              <tr>
+                <td class="header-label-top">Is Approved : </td>
+                <td class="detail-label-top">{{EventData.IsApproved}}</td>
+                <td class="gap-column-top"></td>
+                <td class="header-label-top">Approved By : </td>
+                <td class="detail-label-top">{{EventData.ApprovedBy}}</td>
+                <td class="gap-column-top"></td>
+                <td class="header-label-top">Is Active : </td>
+                <td class="detail-label-top">{{EventData.IsActive}}</td>
+              </tr>
+              <tr>
+                <td class="header-label-top">Created By : </td>
+                <td class="detail-label-top">{{EventData.CreatedBy}}</td>
+                <td class="gap-column-top"></td>
+                <td class="header-label-top">Create Date : </td>
+                <td colspan="4" class="detail-label-top">{{EventData.CreateDate | date:"dd-MMM-yyyy hh:mm a"}}</td>
+              </tr>
+              <tr>
+                <td class="header-label-top">Updated By : </td>
+                <td class="detail-label-top">{{EventData.UpdatedBy}}</td>
+                <td class="gap-column-top"></td>
+                <td class="header-label-top">Updated Date : </td>
+                <td colspan="4" class="detail-label-top">{{EventData.UpdatedDate | date:"dd-MMM-yyyy hh:mm a"}}</td>
+
+              </tr>
+            </table>
+          </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 10px !important;">
+          <div class="col-md-12">
+            <table class="detail-table">
+              <tr>
+                <td class="header-label">Member Count : </td>
+                <td class="detail-label">{{EventData.MemberCount}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Member Amount : </td>
+                <td class="detail-label">{{EventData.MemberAmount}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Spouse Count : </td>
+                <td class="detail-label">{{EventData.SpouseCount}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Spouse Amount : </td>
+                <td class="detail-label">{{EventData.SpouseAmount}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Child Count : </td>
+                <td class="detail-label">{{EventData.ChildCount}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Child Amount : </td>
+                <td class="detail-label">{{EventData.ChildAmount}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Driver Count : </td>
+                <td class="detail-label">{{EventData.DriverCount}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Driver Amount : </td>
+                <td class="detail-label">{{EventData.DriverAmount}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Other Count : </td>
+                <td class="detail-label">{{EventData.OtherCount}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Other Amount : </td>
+                <td class="detail-label">{{EventData.OtherAmount}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Total Count : </td>
+                <td class="detail-label" style="font-weight: bold;">{{EventData.TotalCount}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Total Amount : </td>
+                <td class="detail-label" style="font-weight: bold;">{{EventData.TotalAmount}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+<!--
+
+        <div class="row" style="margin-top:10px">
+          <div class="col-xs-4"></div>
+          <div class="col-xs-4">
+            <dx-button type="danger" text="Close" (onClick)="closeDetails()" icon="clear" [useSubmitBehavior]="true">
+            </dx-button>
+          </div>
+        </div> -->
+
+      </div>
+
+    </dx-scroll-view>
+
+  </div>
+</dx-popup>
+</div>

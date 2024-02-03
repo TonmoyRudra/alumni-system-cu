@@ -1,0 +1,111 @@
+.full-body {
+  /* background-image: url('../../../../assets/images/banner2CU.jpg'); */
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+
+}
+.logo-section .logo img {
+  padding-top: 140px;
+padding-bottom: 10px;
+display: block;
+margin: auto;
+}
+.logo-section .text-logo h2{
+  font-family: 'Noto Sans TC', sans-serif;
+  color:#736c6a;
+  text-align: center;
+  font-weight: bold;
+}
+.logo-section {
+  padding-bottom: 6vh;
+}
+h3{
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #000000;
+  text-align: center;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 12sp;
+}
+.loginn h3 {
+  text-align: left;
+  padding-bottom: 12px;
+  text-transform: capitalize;
+}
+
+.loginn p{
+  text-align: center;
+  font-size: 24px;
+}
+.loginn form input{
+  display: block;
+
+}
+.loginn form input[type="checkbox"]{
+  display: inline-block;
+
+}
+.input-container {
+display: -ms-flexbox; /* IE10 */
+display: flex;
+width: 100%;
+margin-bottom: 15px;
+}
+
+.icon {
+padding: 10px;
+background: #cc4200;
+color: white;
+min-width: 50px;
+text-align: center;
+
+}
+
+.input-field {
+width: 100%;
+padding: 10px;
+outline: none;
+color: #000000;
+border: 1px solid #000000;
+}
+.checkbox label {
+  color: #ababab;
+}
+
+.input-field:focus {
+border: 1px solid #cc4200;
+}
+
+/* Set a style for the submit button */
+
+
+.button {
+  background-color: #cc4200;
+  color: white;
+  border-color: #cc4200;
+  padding: 15px 20px;
+   width: 100%;
+   border-radius: 6px;
+}
+
+
+.checkbox-lg .custom-control-label::before,
+.checkbox-lg .custom-control-label::after {
+top: .8rem;
+width: 1.55rem;
+height: 1.55rem;
+
+}
+.checkbox-lg .custom-control-label:checked:after {
+  background-color: #ec008c;
+}
+.checkbox-lg .custom-control-label {
+padding-top: 13px;
+padding-left: 6px;
+margin-bottom: 15px;
+}

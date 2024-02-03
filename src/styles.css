@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+/* devexpress css modification */
+
+.dx-datagrid-rowsview .dx-row > .dx-master-detail-cell{
+    padding: 10px !important;
+}
+
+ 
+  .dx-datagrid-nowrap .dx-header-row > td > .dx-datagrid-text-content {
+    height:37px  !important;
+    white-space: pre-wrap  !important;
+  }
+
+  .dx-datagrid-headers .dx-header-row {  
+    background-color: #696687 !important;  
+    color: black !important;
+    
+  }
+
+  .dx-datagrid-total-footer .dx-datagrid-content { 
+    background-color: #e8e886  !important; 
+    color: black !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  .dx-datagrid-text-content{
+    line-height: 14px;
+  }
+
+  .dx-datagrid-footer .dx-header-row {  
+    background-color: #696687 !important;  
+    color: black !important;
+    
+  }
+
+.dx-state-focused .dx-texteditor-input {
+    background-color: #fff2c0 !important;  
+}
+
+.dx-state-focused .dx-texteditor-input-container {
+    background-color: #fff2c0 !important;  
+}
+
+.dx-scrollable-content {
+    padding-bottom: 0px !important;
+    padding-right: 0px !important;
+}

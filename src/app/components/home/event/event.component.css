@@ -1,0 +1,92 @@
+.feechart {
+  /* border: 1px solid blue;
+  margin: 10px;
+  padding: 6px;
+  border-radius: 10px; */
+}
+
+.feechart .header{
+  font-size: 28px;
+    font-weight: bold;
+    color: blue;
+    text-decoration: underline;
+    margin-bottom: 10px
+}
+
+.feechart ul {
+  font-size: 16px;
+  color: #ff5722;
+  font-weight: bold;
+}
+
+.feechart li {
+  padding: 5px 0px;
+  font-size: 12px;
+}
+.catagoryPart{
+  padding: 7px 20px;
+  background: #6f42c161;
+  border-radius: 10px;
+  height: 50px;
+  /* margin: 5px; */
+  font-weight: bold;
+}
+.paymentOption{
+  padding: 7px 0px;
+  background: #38aec1b8;
+  border-radius: 10px;
+  height: 50px;
+  margin: 5px;
+  font-weight: bold;
+}
+.paymentOption span {
+  position: relative;
+    top: 2px;
+    left: 6px;
+}
+.left-part{
+  /* border: 1px solid blue;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px; */
+
+  padding: 40px 35px;
+  background: var(--bg-color);
+  border-radius: var(--border-radius-full);
+  box-shadow: rgb(1 1 1 / 30%) 1px 1px 5px 0px;
+  margin-top: 90px;
+  margin-right: 5px;
+}
+
+.cont-details{
+  padding: 40px 35px;
+    background: var(--bg-color);
+    border-radius: var(--border-radius-full);
+    box-shadow: rgb(1 1 1 / 30%) 1px 1px 5px 0px;
+    margin-top: 160px;
+}
+
+.ulhead{
+  color: var(--success);
+    font-weight: bold;
+}
+
+
+.event-invite-label{
+  font-weight: bold;
+}
+.event-invite-text{}
+
+.eventName {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 18px;
+  color: rebeccapurple;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.tableView{
+  display: flex;
+    justify-content: center;
+}

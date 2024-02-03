@@ -1,0 +1,31 @@
+export interface IEvent {
+  EventId: number;
+  EventName: string;
+  EventPlace: String;
+  MemberId: string;
+  Name: string;
+  Mobile: string;
+  Category: string;
+  UniversityBatch: string;
+  MemberAmount: number;
+  MemberCount: number;
+  SpouseAmount: number;
+  SpouseCount: number;
+  ChildAmount: number;
+  ChildCount: number;
+  DriverAmount: number;
+  DriverCount: number;
+  OtherAmount: number;
+  OtherCount: number;
+  TotalAmount: number;
+  BkashTransactionId: string;
+  BkashMobileNo: string;
+  IsApproved: boolean;
+  ApprovedBy: boolean;
+  Id: number;
+  IsActive: boolean;
+  CreateDate: Date;
+  UpdatedDate: Date;
+  CreatedBy: number;
+  UpdatedBy: number;
+}

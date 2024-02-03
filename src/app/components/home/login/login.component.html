@@ -1,0 +1,68 @@
+<div class="full-body">
+  <div class="container">
+      <div class="logo-section">
+          <div class="logo">
+              <img src="../../../../assets/images/culogolightblue.png" alt="brac-logo">
+          </div>
+          <div class="text-logo">
+              <h2>Chittagong University Public Administration</h2>
+              <h2>Ex Students Forum, Dhaka</h2>
+              <!-- <h3>Version 1.01</h3> -->
+          </div>
+      </div>
+      <div class="loginn">
+          <form class="form-signin" (ngSubmit)="onSubmit(signInForm)" style="max-width:500px;margin:auto"  #signInForm="ngForm" >
+              <h3><b>Login</b> Here</h3>
+              <div class="input-container">
+                  <i class="fa fa-user icon"></i>
+                  <input class="input-field" type="text" placeholder="User ID / Email" name="usrnm" ngModel >
+              </div>
+
+              <div class="input-container">
+                  <i class="fa fa-lock icon"></i>
+                  <input class="input-field" type="password" placeholder="Password" name="psw" ngModel >
+              </div>
+              <div class="custom-control custom-checkbox checkbox-lg">
+                  <input type="checkbox" class="custom-control-input" id="checkbox-2"  ngModel >
+              </div>
+
+              <button type="submit" class="button">LOGIN</button>
+            </form>
+            <!-- <div style="text-align: center;">
+              <button style="    max-width: 500px;
+              margin: auto;margin-top: 1%;border-radius: 57px;font-size: 30px;" class="button" (click)="goToSSO()">SSO Login</button>
+            </div> -->
+          <div style="text-align: center;padding: 5em 0px;color: #736c6a;">
+            <!-- <div>Nam dignissim hendrerit risus, nec eleifend tellus.</div>
+            <div>Duis congue malesauda tincidunt</div> -->
+          </div>
+      </div>
+  </div>
+</div>
+<!-- <dx-popup
+    *ngIf="popupVisible_program"
+    [showTitle]="true"
+    [title]= "title"
+    [dragEnabled]="false"
+    hideOnOutsideClick="true"
+    [showCloseButton]="false"
+    container=".dx-viewport"
+    width="500"
+    height="250"
+    [(visible)]="popupVisible_program"
+  >
+
+    <dxi-toolbar-item
+      widget="dxButton"
+      toolbar="top"
+      location="after"
+      [options]="closeButtonOptions"
+    > </dxi-toolbar-item>
+    <dxo-position at="center" my="center" of="window" collision="fit"> </dxo-position>
+    <div *dxTemplate="let data of 'content'">
+
+      <app-programme></app-programme>
+
+
+    </div>
+  </dx-popup> -->
