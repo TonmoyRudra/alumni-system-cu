@@ -2,7 +2,7 @@ import { GlobalService } from 'src/app/shared/service/global/global.service';
 import { MemberService } from './../../../shared/service/member/member.service';
 import { GalleryService } from './../../../shared/service/gallery/gallery.service';
 import { AutenticationService } from './../../../shared/service/autentication/autentication.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { IEvent } from 'src/app/shared/interface/event.interface';
 import { Router } from '@angular/router';
 import { HttpService } from '../../../shared/service/http/http.service';
@@ -21,7 +21,7 @@ import * as $ from 'jquery';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, AfterViewInit {
   sessionUser: any;
   isAdmin : boolean = false;
   constructor(public autenticationService: AutenticationService,
@@ -34,11 +34,13 @@ export class GalleryComponent implements OnInit {
     this.isAdmin = this.autenticationService.isAdminRole();
   }
   ngOnInit(): void {   
-    $(".upload-button").on('click', function () {
-      $(".file-upload").click();
-    });
+   this.uploadButtonInit();
 
     this.getAllGalleryImages();
+  }
+
+  ngAfterViewInit(): void {
+    this.uploadButtonInit();
   }
 
   galleryImagesList: any;
@@ -60,7 +62,11 @@ export class GalleryComponent implements OnInit {
   
 
 
-
+  uploadButtonInit(){
+    $(".upload-button").on('click', function () {
+      $(".file-upload").click();
+    });
+  }
 
 
   uploadedFilePath: any;

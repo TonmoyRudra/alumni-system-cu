@@ -86,7 +86,7 @@ export class EventComponent implements OnInit {
 
     this.eventModel.Id = 0; // Static
     this.eventModel.EventName = "Family Reunion 2024"
-    this.eventModel.EventPlace = "CCULB Resort & Convention Hall"
+    this.eventModel.EventPlace = "Chuti Resort Purbachal"
     this.getmemberById(this.sessionUser.MemberId);
     this.categoryList = [{
       id: 1,
