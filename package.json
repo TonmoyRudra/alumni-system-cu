@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=0.0.0.0 --disableHostCheck=true --port=4204",
-    "start-custom" : "node --max_old_space_size=8048 --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve --open --port=4225",
+    "start-custom": "node --max_old_space_size=8048 --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve --open --port=4225",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

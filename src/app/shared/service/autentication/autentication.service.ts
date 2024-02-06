@@ -125,7 +125,7 @@ export class AutenticationService {
   isAdminRole() {
     // return true;
     const sUser = JSON.parse(localStorage.getItem('sessionUser'));
-    if (sUser?.role?.short_form.toLowerCase() == 'admin') {
+    if (sUser.UserName == "admin") {
       return true;
     } else {
       return false;
