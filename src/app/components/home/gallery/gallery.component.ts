@@ -2,7 +2,7 @@ import { GlobalService } from 'src/app/shared/service/global/global.service';
 import { MemberService } from './../../../shared/service/member/member.service';
 import { GalleryService } from './../../../shared/service/gallery/gallery.service';
 import { AutenticationService } from './../../../shared/service/autentication/autentication.service';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IEvent } from 'src/app/shared/interface/event.interface';
 import { Router } from '@angular/router';
 import { HttpService } from '../../../shared/service/http/http.service';
@@ -21,7 +21,7 @@ import * as $ from 'jquery';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit, AfterViewInit {
+export class GalleryComponent implements OnInit {
   sessionUser: any;
   isAdmin : boolean = false;
   constructor(public autenticationService: AutenticationService,
@@ -34,13 +34,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     this.isAdmin = this.autenticationService.isAdminRole();
   }
   ngOnInit(): void {   
-   this.uploadButtonInit();
-
     this.getAllGalleryImages();
-  }
-
-  ngAfterViewInit(): void {
-    this.uploadButtonInit();
   }
 
   galleryImagesList: any;
@@ -51,75 +45,14 @@ export class GalleryComponent implements OnInit, AfterViewInit {
       if(result != null){
         this.galleryImagesList = result;
        this.galleryImagesList.forEach(element => {
-        this.dataSource.push(element["ImageUrl"]);
+        if(element["IsActive"])
+          this.dataSource.push(element["ImageUrl"]);
        });
         
       } 
     }, error =>{
       this.globalService.errorResponseHandler(error)
     })
-  }
-  
-
-
-  uploadButtonInit(){
-    $(".upload-button").on('click', function () {
-      $(".file-upload").click();
-    });
-  }
-
-
-  uploadedFilePath: any;
-  fileData: File;
-
-  filePickerData (event) {
-    const target: DataTransfer = event.target as DataTransfer;
-    if (target.files && target.files[0]) {
-      var reader = new FileReader();
-
-      reader.onload = function (e) {
-        $('.profile-pic').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(target.files[0]); // bind the picked image on a image src;
-      this.fileData = target.files[0];
-      console.log(target.files[0]);
-      this.uploadFile(this.fileData);
-    }
-  }
-
-  uploadFile(fileData) {
-    this.globalService.showSpinner(true);
-    this.memberService.uploadFile(fileData).subscribe(result => {
-      this.globalService.showSpinner(false);
-      this.uploadedFilePath = result;
-     this.updateProfile();
-    }, err => {
-      this.globalService.showSpinner(false);
-      console.log(err);      
-    })
-  }
-  updateProfile(){
-    
-    this.globalService.showSpinner(true);
-    this.http.post("/ImageConfig/Post",{
-      "Name": this.uploadedFilePath,
-      "ImageUrl":  this.globalService.domain+"upload/"+this.uploadedFilePath    
-    } )
-      .subscribe(
-        d => {
-          this.globalService.showSpinner(false);
-          notify("Profile Details updated", 'success', 2000);
-
-          this.getAllGalleryImages();
-
-        },
-        e => {
-          
-          this.globalService.showSpinner(false);
-          console.log(e);
-          notify('Something wrong. Data failed to load.', 'error', 2000);
-        }
-      );
   }
 
   dataSource: string[];

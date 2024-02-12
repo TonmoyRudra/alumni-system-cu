@@ -42,21 +42,18 @@
 
   <dxi-column caption="Actions"  cellTemplate="action"></dxi-column>
   <div *dxTemplate="let cell of 'action'">
-    <div style="    margin: 10px;">
-      <span *ngIf="cell.data.IsApproved">Approved</span>
+    <div *ngIf="cell.data.IsApproved" style="margin:2px;">
+      <span >Approved</span>
     </div>
-<div style="    margin: 10px;">
-  <dx-button *ngIf="!cell.data.IsApproved" type="success" text="Approve" title="Approve"
-    (onClick)="Approve(cell.data.BkashTransactionId)"></dx-button>
-    <!-- <dx-button *ngIf="cell.data.IsApproved" type="danger" text="DisApprove"  title="DisApprove"
-    (onClick)="DeApprove(cell.data.BkashTransactionId)"></dx-button> -->
-</div>
-<div style="    margin: 10px;">
-  <dx-button type="default" text="Details"  title="Details" (onClick)="ShowDetails(cell.data)"></dx-button>
-</div>
-
-    &nbsp;
-
+    <div *ngIf="!cell.data.IsApproved" style="margin:2px;">
+      <dx-button  type="success" text="Approve" title="Approve"
+        (onClick)="Approve(cell.data.BkashTransactionId)"></dx-button>
+        <!-- <dx-button *ngIf="cell.data.IsApproved" type="danger" text="DisApprove"  title="DisApprove"
+        (onClick)="DeApprove(cell.data.BkashTransactionId)"></dx-button> -->
+    </div>
+    <div style="margin:2px;">
+      <dx-button type="default" text="Details"  title="Details" (onClick)="ShowDetails(cell.data)"></dx-button>
+    </div>
   </div>
 
   <dxo-summary>
@@ -100,7 +97,7 @@
               </tr>
               <tr>
                 <td class="header-label">Submission Date : </td>
-                <td class="detail-label">{{EventData.CreateDate}}</td>
+                <td class="detail-label">{{EventData.CreateDate  | date:"dd-MMM-yyyy hh:mm a"}}</td>
                 <td class="gap-column"></td>
                 <td class="header-label">Mobile: </td>
                 <td class="detail-label">{{EventData.Mobile}}</td>

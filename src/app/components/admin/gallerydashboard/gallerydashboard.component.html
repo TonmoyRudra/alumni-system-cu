@@ -1,0 +1,85 @@
+<h3>Gallery Dashboard</h3>
+
+<div style="height: calc(100%);overflow: scroll;">
+
+  <dx-data-grid id="gridContainer" [dataSource]="GalleryList" keyExpr="Id" [columnHidingEnabled]="false"
+    [allowColumnReordering]="true" [allowColumnResizing]="true" [showBorders]="true"
+    (onRowPrepared)="onRowPrepared($event)" [showRowLines]="true" [wordWrapEnabled]="true"
+    (onEditingStart)="logEvent('EditingStart',$event)" (onInitNewRow)="logEvent('InitNewRow',$event)"
+    (onRowInserting)="logEvent('RowInserting',$event)" (onRowInserted)="logEvent('RowInserted',$event)"
+    (onRowUpdating)="logEvent('RowUpdating',$event)" (onRowUpdated)="logEvent('RowUpdated',$event)"
+    (onRowRemoving)="logEvent('RowRemoving',$event)" (onRowRemoved)="logEvent('RowRemoved',$event)"
+    (onSaving)="logEvent('Saving',$event)" (onSaved)="logEvent('Saved',$event)"
+    (onEditCanceling)="logEvent('EditCanceling',$event)" (onEditCanceled)="logEvent('EditCanceled',$event)"
+    (onEditorPreparing)="logEvent('EditorPreparing',$event)">
+
+    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+    <dxo-export [enabled]="true" fileName="List" [allowExportSelectedData]="true"></dxo-export>
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-filter-panel [visible]="true"></dxo-filter-panel>
+    <dxo-scrolling [scrollByContent]="true" columnRenderingMode="virtual" showScrollbar="always"></dxo-scrolling>
+
+    <dxo-header-filter [visible]="true" [allowSearch]="true"></dxo-header-filter>
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+    <dxo-paging [enabled]="true"></dxo-paging>
+    <dxo-paging [pageSize]="5"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"
+      [allowedPageSizes]="[10,20,50, 100, 250, 500, 1000]"></dxo-pager>
+
+    <dxo-grouping [contextMenuEnabled]="true" expandMode="rowClick"></dxo-grouping>
+    <dxo-selection mode="none"></dxo-selection>
+
+    <!-- [form]="{items: ['Id','Name','Image','ImagePosition','DetailsText','IsActive']}" -->
+    <dxo-editing mode="form" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true" [useIcons]="true">
+    </dxo-editing>
+
+    <dxi-column dataField="Id" [allowEditing]="false"><dxo-form-item [visible]="false">
+      </dxo-form-item></dxi-column>
+    <dxi-column dataField="Name">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+
+    <dxi-column caption="Image" [allowEditing]="false" cellTemplate="ImageViewCellTemplate"
+      editCellTemplate="ImageEditCellTemplate" editFormTemplate="ImageEditCellTemplate"></dxi-column>
+    <div *dxTemplate="let cell of 'ImageViewCellTemplate'">
+      <div style="margin:2px;">
+        <dx-button type="default" text="Image" title="Image" (onClick)="ShowImageUrl(cell.data.ImageUrl)"></dx-button>
+      </div>
+    </div>
+    <div *dxTemplate="let cell of 'ImageEditCellTemplate'">
+      <div *ngIf="!cell.data.Id>0">        
+        <i class="fa fa-camera upload-button">
+          <input class="file-upload" type="file" accept="image/*" (change)="filePickerData($event)" />
+        </i>
+      </div>
+    </div>
+
+    <dxi-column dataField="ImagePosition"><dxi-validation-rule type="required"></dxi-validation-rule></dxi-column>
+    <dxi-column dataField="IsActive"></dxi-column>
+
+    <dxi-column dataField="DetailsText" [visible]="false">
+      <dxo-form-item [colSpan]="2" editorType="dxTextArea" [editorOptions]="{ height: 100 }">
+      </dxo-form-item>
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+
+    <dxi-column dataField="CreatedBy" [allowEditing]="false">
+      <dxo-form-item [visible]="false">
+      </dxo-form-item>
+    </dxi-column>
+    <dxi-column dataField="CreateDate" [allowEditing]="false" dataType="datetime"
+      format="dd-MMM-yyyy hh:mm a"><dxo-form-item [visible]="false">
+      </dxo-form-item></dxi-column>
+    <dxi-column dataField="UpdatedBy" [allowEditing]="false"><dxo-form-item [visible]="false">
+      </dxo-form-item></dxi-column>
+    <dxi-column dataField="UpdatedDate" [allowEditing]="false" dataType="datetime"
+      format="dd-MMM-yyyy hh:mm a"><dxo-form-item [visible]="false">
+      </dxo-form-item></dxi-column>
+
+    <dxo-summary>
+      <dxi-total-item summaryType="count" displayFormat="{0} Records" column="Id"></dxi-total-item>
+    </dxo-summary>
+
+  </dx-data-grid>
+
+</div>

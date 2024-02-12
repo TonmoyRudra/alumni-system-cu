@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { EventtransactionapproveComponent } from './eventtransactionapprove/eventtransactionapprove.component';
 import { AdminlayoutComponent } from './adminlayout/adminlayout.component';
+import { GallerydashboardComponent } from './gallerydashboard/gallerydashboard.component';
 
 
 
@@ -15,7 +16,8 @@ import { AdminlayoutComponent } from './adminlayout/adminlayout.component';
   declarations: [
     AdmindashboardComponent,
     EventtransactionapproveComponent,
-    AdminlayoutComponent
+    AdminlayoutComponent,
+    GallerydashboardComponent
   ],
   imports: [
     CommonModule,

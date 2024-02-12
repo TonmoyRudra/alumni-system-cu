@@ -12,7 +12,8 @@ export class List {
 
 const navigation: List[] = [
   { id: 1, text: 'DashBoad', icon: 'admindashboard' , url:'admindashboard' },
-  { id: 2, text: 'Event Subscription', icon: 'eventtransactionapprove' ,url:'eventtransactionapprove'}
+  { id: 2, text: 'Event Subscription', icon: 'eventtransactionapprove' ,url:'eventtransactionapprove'},
+  { id: 3, text: 'Gallery', icon: 'gallerydashboard' , url: 'gallerydashboard' }
 ];
 
 const text = `

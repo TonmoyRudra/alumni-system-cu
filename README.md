@@ -1,27 +1,29 @@
-# AlumniSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
+https://alumnibackend.rexsystemsbd.com/
 
-## Development server
+swagger :  http://alumnibackend.rexsystemsbd.com/swagger/ui/index#/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+login : 01911614074 , 01711810544
 
-## Code scaffolding
+8a5e2c86-fd8c-4364-b554-46f3bc0568edScreenshot (11).png
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+https://alumnibackend.rexsystemsbd.com/upload/8a5e2c86-fd8c-4364-b554-46f3bc0568edScreenshot (11).png
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+[06-Feb-24 6:21 PM] Tonmoy Rudra Bsrm It Ctg: and we will work on it. 
+1. gallary Upload from admin dashboard panel. 
+2. add edit, delete gallary image and information.
+3. Show gallery Grid or thumbnail view.
+[06-Feb-24 6:21 PM] Tonmoy Rudra Bsrm It Ctg: bujchen?
+[06-Feb-24 6:22 PM] Tonmoy Rudra Bsrm It Ctg: gallery er ei change gulo kora lagbe boss.
+[06-Feb-24 6:23 PM] Tonmoy Rudra Bsrm It Ctg: note: 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run code with command: 'npm run start-custom'
 
-## Further help
+admin user: admin/admin
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+normal user: 01791701239/01791701239
+[06-Feb-24 8:06 PM] Tonmoy Rudra Bsrm It Ctg: https://github.com/TonmoyRudra/alumni-system-cu

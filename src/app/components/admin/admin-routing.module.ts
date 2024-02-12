@@ -1,6 +1,7 @@
 
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { EventtransactionapproveComponent } from './eventtransactionapprove/eventtransactionapprove.component';
+import { GallerydashboardComponent } from './gallerydashboard/gallerydashboard.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'eventtransactionapprove',
     component: EventtransactionapproveComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'gallerydashboard',
+    component: GallerydashboardComponent,
     canActivate: [AuthGuard],
   },
   {
