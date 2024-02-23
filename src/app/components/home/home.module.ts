@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EventComponent } from './event/event.component';
 import { MemberdetailsComponent } from './memberdetails/memberdetails.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { MemberListComponent } from './member-list/member-list.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     LoginComponent,
     EventComponent,
     MemberdetailsComponent,
-    GalleryComponent
+    GalleryComponent,
+    MemberListComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,38 @@
+
+
+.detail-table{
+    border-collapse: separate !important; /* allow spacing between cell borders */
+    border-spacing: 0 5px !important;
+}
+.header-label{
+    font-weight: bold !important;
+    width: 90px !important;
+}
+.gap-column{
+    width: 10px;
+}
+.detail-label{
+    width: 80px !important;
+}
+
+
+
+.detail-table-top{
+    border-collapse: separate !important; /* allow spacing between cell borders */
+    border-spacing: 0 5px !important;
+}
+.header-label-top{
+    font-weight: bold !important;
+    width: 110px !important;
+}
+.gap-column-top{
+    width: 30px;
+}
+.detail-label-top{
+    width: 20px !important;
+}
+
+
+table{
+  width: 100%;;
+}

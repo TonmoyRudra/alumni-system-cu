@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from 'src/app/auth-gaurd/auth.garud';
 import { MemberdetailsComponent } from './memberdetails/memberdetails.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { MemberListComponent } from './member-list/member-list.component';
 
 const routes: Routes = [
   // {
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'gallery',
     component: GalleryComponent,
+    canActivate: [AuthGuard],
+  },  {
+    path: 'memberList',
+    component: MemberListComponent,
     canActivate: [AuthGuard],
   },
   // {

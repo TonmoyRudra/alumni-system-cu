@@ -1,0 +1,222 @@
+ 
+
+
+
+
+
+<div class="inner-banner">
+  <section class="w3l-breadcrumb py-3">
+    <div class="container py-lg-2 py-md-3">
+      <h2 class="title">Member List</h2>
+    </div>
+  </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+  <div class="shape overflow-hidden">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+    </svg>
+  </div>
+</div>
+
+
+<section class="w3l-contact-7 " id="contact">
+  <div class="contacts-9 ">
+    <div class=" ">
+      <div class="top-map">
+        <div class="row map-content-9 " style=" margin-bottom: 4%; ">
+          <div class="col-lg-12">
+         
+<div style="height: calc(100%);overflow: scroll;">
+  <dx-data-grid id="gridContainer" [dataSource]="memberList" keyExpr="Id" [columnHidingEnabled]="false"
+  [allowColumnReordering]="true" [allowColumnResizing]="true" [showBorders]="true"
+  (onRowPrepared)="onRowPrepared($event)" [showRowLines]="true" [wordWrapEnabled]="true">
+
+  <!-- [remoteOperations]="true"  -->
+
+  <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+  <dxo-export [enabled]="true" fileName="List" [allowExportSelectedData]="true"></dxo-export>
+  <dxo-sorting mode="multiple"></dxo-sorting>
+  <dxo-filter-panel [visible]="true"></dxo-filter-panel>
+  <dxo-scrolling [scrollByContent]="true" columnRenderingMode="virtual" showScrollbar="always"></dxo-scrolling>
+
+  <!-- <dxo-filter-builder [visible]="true"></dxo-filter-builder> -->
+  <!-- <dxo-filter-row [visible]="true"></dxo-filter-row> -->
+  <dxo-header-filter [visible]="true" [allowSearch]="true"></dxo-header-filter>
+  <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+  <dxo-paging [enabled]="true"></dxo-paging>
+  <dxo-paging [pageSize]="5"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true" [allowedPageSizes]="[10,20,50, 100, 250, 500, 1000]"></dxo-pager>
+
+  <dxo-grouping [contextMenuEnabled]="true" expandMode="rowClick"></dxo-grouping>
+  <dxo-selection mode="none"></dxo-selection>
+
+  <dxi-column dataField="MemberNo"></dxi-column>
+  <dxi-column dataField="Photo" cellTemplate="photo" alignment="center"></dxi-column>
+  <div *dxTemplate="let cell of 'photo'" >
+    <img *ngIf="cell.data.ProfilePicture" class="profile-pic" [src]="profilePictureFullUrl + cell.data.ProfilePicture" style="margin-right: 10px;    width: 80px; height: 90px;">
+    <img  *ngIf="!cell.data.ProfilePicture" class="profile-pic" [src]="'../../../../assets/images/team1.jpg'" style="margin-right: 10px;  width: 80px; height: 90px;">
+   </div>
+  <dxi-column dataField="Name"></dxi-column>
+  <dxi-column dataField="UniversityBatch"></dxi-column>
+  <dxi-column dataField="BSSYear"></dxi-column>
+  <dxi-column dataField="MSSYear"></dxi-column>
+  <dxi-column dataField="Email"></dxi-column>
+  <dxi-column dataField="Mobile"></dxi-column>
+  <dxi-column dataField="BloodGroup"></dxi-column>
+  <dxi-column dataField="Profession"></dxi-column>
+  <dxi-column dataField="Designation"></dxi-column> 
+  
+
+  <dxi-column caption="Actions"  cellTemplate="action"></dxi-column>
+  <div *dxTemplate="let cell of 'action'">  
+    <div style="margin:2px;">
+      <dx-button type="default" text="Details"  title="Details" (onClick)="ShowDetails(cell.data)"></dx-button>
+    </div>
+  </div>
+
+  <dxo-summary>
+    <dxi-total-item summaryType="count" displayFormat="{0} Records" column="EventName"></dxi-total-item>
+
+    <dxi-total-item summaryType="sum" displayFormat="{0}" column="TotalAmount"
+      [valueFormat]="{ format: '#,##,##0.##' , type: 'fixedPoint', precision: 2 }"></dxi-total-item>
+
+    <dxi-total-item summaryType="sum" displayFormat="{0}" column="TotalCount"
+      [valueFormat]="{ format: '#,##,##0' , type: 'fixedPoint', precision: 0 }"></dxi-total-item>
+
+  </dxo-summary>
+
+</dx-data-grid>
+
+
+
+<dx-popup class="popup" [width]="900" [height]="'auto'" [showTitle]="true" title="Details" [dragEnabled]="true"
+  [closeOnOutsideClick]="false" [(visible)]="isDialogVisible">
+
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view [width]="'auto'" [height]="500" [direction]="both" [showScrollbar]="'always'">
+
+      <div id="content">
+        <div class="row" style=" ">
+          <div class="col-sm-12"style="text-align: center;  ">
+           
+            <div style="margin: auto !important;">
+               <img *ngIf="memberDetails.ProfilePicture" class="profile-pic" [src]="profilePictureFullUrl + memberDetails.ProfilePicture" style="    width: 150px;
+               height: 150px;
+               border-radius: 60%;">
+              <img *ngIf="!memberDetails.ProfilePicture" class="profile-pic" [src]="'../../../../assets/images/team1.jpg'"  style="    width: 150px;
+              height: 150px;
+              border-radius: 60%;"> 
+            </div> 
+          </div>
+          <div class="col-md-12">
+            <table class="detail-table">
+              <tr>
+                <td class="header-label">Member No: </td>
+                <td class="detail-label">{{memberDetails.MemberNo}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Name : </td>
+                <td class="detail-label">{{memberDetails.Name}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Father Name : </td>
+                <td class="detail-label">{{memberDetails.FatherName}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Mother Name: </td>
+                <td class="detail-label">{{memberDetails.Mothername}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">University Batch: </td>
+                <td class="detail-label">{{memberDetails.UniversityBatch}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">BSSYear : </td>
+                <td class="detail-label">{{memberDetails.BSSYear}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">MSSYear : </td>
+                <td class="detail-label">{{memberDetails.MSSYear}}</td>
+                <td class="gap-column"></td> 
+              </tr>
+              <tr>
+                <td class="header-label">DOB: </td>
+                <td class="detail-label">{{memberDetails.DOB  | date:"dd-MMM-yyyy"}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Mobile: </td>
+                <td class="detail-label">{{memberDetails.Mobile}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Email: </td>
+                <td class="detail-label">{{memberDetails.Email}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">BloodGroup: </td>
+                <td class="detail-label">{{memberDetails.BloodGroup}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Profession: </td>
+                <td class="detail-label">{{memberDetails.Profession}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Designation: </td>
+                <td class="detail-label">{{memberDetails.Designation}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Present Address: </td>
+                <td class="detail-label">{{memberDetails.PresentAddress}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Permanent Address: </td>
+                <td class="detail-label">{{memberDetails.PermanentAddress}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">SpouseName: </td>
+                <td class="detail-label">{{memberDetails.SpouseName}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">NumberOfKids: </td>
+                <td class="detail-label">{{memberDetails.NumberOfKids}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Marriage Anniversary: </td>
+                <td class="detail-label">{{memberDetails.MarriageAnniversary  | date:"dd-MMM-yyyy"}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Mobile: </td>
+                <td class="detail-label">{{memberDetails.Mobile}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Interest: </td>
+                <td class="detail-label">{{memberDetails.Interest}}</td>
+                <td class="gap-column"></td>
+                <td class="header-label">Achievements: </td>
+                <td class="detail-label">{{memberDetails.Achievements}}</td>
+              </tr>
+              <tr>
+                <td class="header-label">Member Created At: </td>
+                <td class="detail-label">{{memberDetails.CreateDate  | date:"dd-MMM-yyyy"}}</td>
+                <td class="gap-column"></td>
+                 
+              </tr>
+            </table>
+          </div>
+        </div> 
+
+<!--
+
+        <div class="row" style="margin-top:10px">
+          <div class="col-xs-4"></div>
+          <div class="col-xs-4">
+            <dx-button type="danger" text="Close" (onClick)="closeDetails()" icon="clear" [useSubmitBehavior]="true">
+            </dx-button>
+          </div>
+        </div> -->
+
+      </div>
+
+    </dx-scroll-view>
+
+  </div>
+</dx-popup>
+</div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

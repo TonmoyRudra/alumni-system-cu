@@ -55,7 +55,15 @@ export class MemberService {
   //     })
   //   );
   // }
-
+  getAllMember() {
+    return this.http.get(this.apiUrl + '/GetAll').pipe(
+      map((x: Response) => x),
+      map((x: any) => x),
+      catchError((error: Response) => {
+        return throwError(error);
+      })
+    );
+  }
   getMemberById(id) {
     return this.http.get(this.apiUrl + '/GetById?id=' + id).pipe(
       map((x: Response) => x),
